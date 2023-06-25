@@ -54,7 +54,7 @@ Ensure the following packages are installed:
 
 Clone the repository, navigate to the project directory, and install the requirements:
 
-- git clone https://github.com/your_username_/pgGPT_v0.git
+- git clone this repo
 - cd pgGPT_v0
 - pip install -r requirements.txt
 
