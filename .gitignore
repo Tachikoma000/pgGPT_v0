@@ -183,3 +183,6 @@ config.py
 
 #textual flag
 flagged/
+
+# Universal sentence encoder
+Universal Sentence Encoder/

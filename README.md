@@ -26,6 +26,18 @@ pgGPT_v0, despite being designed to mimic a chat bot, doesn't possess the memory
 
 The system can be easily set up and run on any local machine for development and testing purposes. Here are the prerequisites and steps for installation:
 
+### Universal Sentence Encoder
+Download the Universal Sentence Encoder locally to your project's root folder. This is important for generating embeddings for the docs. Download the encoder using this [link](https://tfhub.dev/google/universal-sentence-encoder/4?tf-hub-format=compressed). 
+
+Extract the downloaded file and place it in your project's root folder as shown below:
+```text
+Root folder
+└───Universal Sentence Encoder
+|   ├───assets
+|   └───variables
+|   └───saved_model.pb
+```
+
 ### Prerequisites
 
 Ensure the following packages are installed:
