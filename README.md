@@ -1,4 +1,4 @@
-# Project: pgGPT_v0
+# pgGPT_v0
 
 ![Project screenshot](./images/pggpt_v0_vid.gif)
 
