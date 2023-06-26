@@ -6,13 +6,14 @@ import numpy as np
 import openai
 import tensorflow_hub as hub
 from sklearn.neighbors import NearestNeighbors
+from sentence_transformers import SentenceTransformer
 
 from config import OPENAI_API_KEY
 
 
 class SemanticSearch:
     def __init__(self):
-        self.use = hub.load('./Universal Sentence Encoder/')
+        self.model = SentenceTransformer('all-roberta-large-v1')
         self.fitted = False
 
     def fit(self, data, batch=1000, n_neighbors=5):
@@ -24,7 +25,7 @@ class SemanticSearch:
         self.fitted = True
 
     def __call__(self, text, return_data=True):
-        inp_emb = self.use([text])
+        inp_emb = self.model.encode([text])
         neighbors = self.nn.kneighbors(inp_emb, return_distance=False)[0]
 
         if return_data:
@@ -36,7 +37,7 @@ class SemanticSearch:
         embeddings = []
         for i in range(0, len(texts), batch):
             text_batch = texts[i : (i + batch)]
-            emb_batch = self.use(text_batch)
+            emb_batch = self.model.encode(text_batch)
             embeddings.append(emb_batch)
         embeddings = np.vstack(embeddings)
         return embeddings
